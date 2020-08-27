@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.Label ?>
+<?import javafx.scene.control.TextField ?>
+<?import javafx.scene.layout.ColumnConstraints ?>
+<?import javafx.scene.layout.GridPane ?>
+<?import javafx.scene.layout.VBox ?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" stylesheets="@style.css" styleClass="v-box">
+	<GridPane styleClass="grid-pane">
+		<Label text="ADM" styleClass="heading" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+		<Label text="IDM" styleClass="heading" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+		
+		<Label text="Imię i nazwisko" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+		<Label text="Numer telefonu" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+		<Label text="Adres e-mail" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+		
+		<TextField fx:id="tradesmanNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+		<TextField fx:id="tradesmanPhoneField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+		<TextField fx:id="tradesmanEmailField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+		
+		<TextField fx:id="assistantNameField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+		<TextField fx:id="assistantPhoneField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+		<TextField fx:id="assistantEmailField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+		
+		<columnConstraints>
+			<ColumnConstraints halignment="LEFT" />
+			<ColumnConstraints halignment="CENTER" />
+			<ColumnConstraints halignment="CENTER" />
+		</columnConstraints>
+	</GridPane>
+</VBox>

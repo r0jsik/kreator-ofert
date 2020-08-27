@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+	<bean class="mr.price.list.loader.PriceListLoaderCacheInitializer" />
+	
+	<bean class="mr.warning.WarningAspect">
+		<constructor-arg ref="warning" />
+	</bean>
+	
+	<bean id="mainPreferences" class="mr.settings.preferences.Ini4jPreferences">
+		<constructor-arg value="file:main.ini" />
+	</bean>
+	
+	<bean id="userPreferences" class="mr.settings.preferences.Ini4jPreferences">
+		<constructor-arg value="file:user.ini" />
+	</bean>
+	
+	<import resource="file:price-lists.xml" />
+	
+	<bean id="priceListsDatabase" class="mr.database.DatabaseWithSecureCharacters">
+		<constructor-arg>
+			<bean class="mr.database.JDBCDatabase">
+				<constructor-arg value="file:price-lists.db" />
+			</bean>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="clientsService" class="mr.clients.service.ObservedClientsService">
+		<constructor-arg>
+			<bean class="mr.clients.service.BufferedClientsService">
+				<constructor-arg>
+					<bean class="mr.clients.service.HibernateClientsService" />
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg ref="filteredClientsView" />
+	</bean>
+	
+	<bean id="filteredClientsView" class="mr.record.filter.FilteredRecordsView">
+		<constructor-arg ref="clientsView" />
+	</bean>
+	
+	<bean class="mr.output.excel.form.DefaultExcelFormMemento">
+		<constructor-arg ref="mainPreferences" />
+	</bean>
+	
+	<bean class="mr.main.scene.MainSceneMediator">
+		<constructor-arg>
+			<bean factory-bean="dialogFactory" factory-method="createDialog">
+				<constructor-arg value="price-list-dialog" />
+				<constructor-arg ref="priceListDialogController" />
+				<constructor-arg value="Dodaj element do oferty" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg>
+			<bean class="mr.item.ItemEditor">
+				<constructor-arg ref="itemDialog" />
+				<constructor-arg ref="itemDialogController" />
+				<constructor-arg ref="offerView" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg>
+			<bean factory-bean="dialogFactory" factory-method="createDialog">
+				<constructor-arg value="clients-list-dialog" />
+				<constructor-arg ref="clientsListDialogController" />
+				<constructor-arg value="Klienci" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg>
+			<bean class="mr.settings.dialog.SettingsDialog">
+				<constructor-arg>
+					<bean factory-bean="dialogFactory" factory-method="createConfirmation">
+						<constructor-arg value="settings-dialog" />
+						<constructor-arg ref="settingsDialogController" />
+						<constructor-arg value="Ustawienia" />
+					</bean>
+				</constructor-arg>
+				
+				<constructor-arg ref="settingsDialogController" />
+				
+				<constructor-arg>
+					<bean class="mr.settings.Settings">
+						<constructor-arg ref="userPreferences" />
+					</bean>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg>
+			<util:list>
+				<bean class="mr.output.text.TextOutput">
+					<constructor-arg>
+						<bean factory-bean="dialogFactory" factory-method="createDialog">
+							<constructor-arg value="text-output" />
+							<constructor-arg ref="textOutputController" />
+							<constructor-arg value="Wynik jako tekst" />
+						</bean>
+					</constructor-arg>
+					
+					<constructor-arg ref="textOutputController" />
+				</bean>
+				
+				<bean class="mr.output.excel.ExcelOutput">
+					<constructor-arg>
+						<bean class="mr.output.excel.form.dialog.ExcelFormDialog">
+							<constructor-arg>
+								<bean factory-bean="dialogFactory" factory-method="createConfirmation">
+									<constructor-arg value="excel-output" />
+									<constructor-arg ref="excelFormDialogController" />
+									<constructor-arg value="Eksportuj do Excela" />
+								</bean>
+							</constructor-arg>
+							
+							<constructor-arg ref="excelFormDialogController" />
+							<constructor-arg ref="clientsService" />
+						</bean>
+					</constructor-arg>
+					
+					<constructor-arg>
+						<bean class="mr.output.excel.document.DocumentGenerator">
+							<constructor-arg>
+								<bean class="mr.output.excel.document.ApacheDocumentFactory">
+									<constructor-arg value="file:templates.xls" />
+									<constructor-arg value="standard" />
+								</bean>
+							</constructor-arg>
+						</bean>
+					</constructor-arg>
+					
+					<constructor-arg>
+						<bean class="mr.output.export.DialogFileExporter">
+							<constructor-arg ref="fileDialog" />
+							
+							<constructor-arg>
+								<util:map>
+									<entry key="*.xls" value="Dokument programu Microsoft Excel" />
+								</util:map>
+							</constructor-arg>
+						</bean>
+					</constructor-arg>
+					
+					<constructor-arg ref="userPreferences" />
+				</bean>
+			</util:list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="filteredPriceListView" class="mr.record.filter.FilteredRecordsView">
+		<constructor-arg ref="priceListView" />
+	</bean>
+	
+	<bean class="mr.price.list.dialog.PriceListDialogMediator">
+		<constructor-arg ref="priceListDialogController" />
+		
+		<constructor-arg>
+			<bean class="mr.price.list.loader.DatabasePriceListLoader">
+				<constructor-arg ref="priceListsDatabase" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg>
+			<bean class="mr.item.ItemCollector">
+				<constructor-arg ref="itemDialog" />
+				<constructor-arg ref="itemDialogController" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg ref="filteredPriceListView" />
+	</bean>
+	
+	<bean class="mr.clients.list.dialog.ClientsListDialogMediator">
+		<constructor-arg>
+			<bean class="mr.client.ClientCollector">
+				<constructor-arg ref="clientDialog" />
+				<constructor-arg ref="clientFormController" />
+				<constructor-arg ref="clientsService" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg>
+			<bean class="mr.client.ClientEditor">
+				<constructor-arg ref="clientDialog" />
+				<constructor-arg ref="clientFormController" />
+				<constructor-arg ref="clientsService" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg ref="clientsService" />
+		<constructor-arg ref="filteredClientsView" />
+	</bean>
+	
+	<bean class="mr.security.dialog.PasswordDialog">
+		<constructor-arg>
+			<bean factory-bean="dialogFactory" factory-method="createConfirmation">
+				<constructor-arg value="password-dialog" />
+				<constructor-arg ref="passwordDialogController" />
+				<constructor-arg value="Podaj hasło" />
+			</bean>
+		</constructor-arg>
+		
+		<constructor-arg ref="passwordDialogController" />
+	</bean>
+	
+	<bean id="itemDialog" factory-bean="dialogFactory" factory-method="createConfirmation">
+		<constructor-arg value="item-dialog" />
+		<constructor-arg ref="itemDialogController" />
+		<constructor-arg value="" />
+	</bean>
+	
+	<bean id="clientDialog" factory-bean="dialogFactory" factory-method="createConfirmation">
+		<constructor-arg value="client-dialog" />
+		<constructor-arg ref="clientFormController" />
+		<constructor-arg value="" />
+	</bean>
+</beans>

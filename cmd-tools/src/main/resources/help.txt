@@ -1,0 +1,12 @@
+Example commands:
+
+> price-lists create path/to/database/file.db password price-list-name path/to/data/file.csv
+> price-lists update path/to/database/file.db password price-list-name path/to/data/file.csv
+> price-lists rename path/to/database/file.db password price-list-name newPriceListName
+> price-lists remove path/to/database/file.db password price-list-name
+> price-lists close  path/to/database/file.db password
+> clients encrypt path/to/database/file.db password
+> clients clear   path/to/database/file.db
+> clients close   path/to/database/file.db
+
+Your commands:

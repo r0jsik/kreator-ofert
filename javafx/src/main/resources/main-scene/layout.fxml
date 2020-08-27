@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.Button ?>
+<?import javafx.scene.control.Separator ?>
+<?import javafx.scene.layout.BorderPane ?>
+<?import javafx.scene.layout.HBox ?>
+<?import javafx.scene.layout.VBox ?>
+
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css" styleClass="v-box">
+	<BorderPane>
+		<left>
+			<HBox styleClass="h-box">
+				<Button onAction="#showPriceListDialog" text="Dodaj element" />
+				<Separator />
+				<Button onAction="#showTextOutput" text="Pokaż jako tekst" />
+				<Button onAction="#showExcelOutput" text="Eksportuj do Excela" />
+			</HBox>
+		</left>
+		
+		<right>
+			<HBox styleClass="h-box">
+				<Button onAction="#clearOffer" text="Wyczyść" />
+				<Button onAction="#showClientsListDialog" text="Klienci" />
+				<Button onAction="#showSettingsDialog" text="Ustawienia" />
+			</HBox>
+		</right>
+	</BorderPane>
+</VBox>

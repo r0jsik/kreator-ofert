@@ -1,0 +1,36 @@
+.root
+{
+	-fx-pref-width: 1000px;
+	-fx-padding: 10px;
+}
+
+.v-box
+{
+	-fx-spacing: 10px;
+}
+
+.h-box
+{
+	-fx-spacing: 10px;
+}
+
+.button, .table-view
+{
+	-fx-focus-color: silver;
+	-fx-faint-focus-color: transparent;
+}
+
+.table-view
+{
+	-fx-pref-height: 300px;
+}
+
+.button
+{
+	-fx-min-width: 90px;
+}
+
+.separator
+{
+	-fx-orientation: vertical;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.Button ?>
+<?import javafx.scene.control.Separator ?>
+<?import javafx.scene.control.TextField ?>
+<?import javafx.scene.layout.HBox ?>
+<?import javafx.scene.layout.VBox ?>
+
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css" styleClass="v-box">
+	<HBox styleClass="h-box">
+		<TextField fx:id="filterField" promptText="Filtruj..." />
+		
+		<Button onAction="#clearFilter" text="Wyczyść" />
+		<Separator />
+		<Button onAction="#createClient" text="Utwórz" />
+		
+		<HBox fx:id="selectedClientMenu" styleClass="h-box">
+			<Button onAction="#modifyClient" text="Edytuj" />
+			<Button onAction="#removeClient" text="Usuń" />
+		</HBox>
+	</HBox>
+</VBox>

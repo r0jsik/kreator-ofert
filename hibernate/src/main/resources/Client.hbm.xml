@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="mr.client">
+	<class name="Client" table="clients">
+		<id name="ID" column="id" type="int">
+			<generator class="native" />
+		</id>
+		
+		<property name="receiver" column="receiver" type="converted::mr.security.SecureHibernateField" />
+		<property name="firmName" column="firm_name" type="converted::mr.security.SecureHibernateField" />
+		<property name="VIP" column="vip" type="converted::mr.security.SecureHibernateField" />
+		<property name="address" column="address" type="converted::mr.security.SecureHibernateField" />
+		<property name="phone" column="phone" type="converted::mr.security.SecureHibernateField" />
+		<property name="FAX" column="fax" type="converted::mr.security.SecureHibernateField" />
+		<property name="email" column="email" type="converted::mr.security.SecureHibernateField" />
+	</class>
+</hibernate-mapping>

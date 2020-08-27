@@ -1,0 +1,65 @@
+.root
+{
+	-fx-spacing: 30px;
+}
+
+.v-box
+{
+	-fx-spacing: 5px;
+}
+
+.h-box
+{
+	-fx-spacing: 5px;
+}
+
+.grid-pane
+{
+	-fx-vgap: 5px;
+	-fx-hgap: 10px;
+}
+
+.heading
+{
+	-fx-font-weight: bold;
+}
+
+.date-picker, .combo-box, .text-field
+{
+	-fx-pref-width: 180px;
+}
+
+.date-picker, .combo-box
+{
+	-fx-focus-color: silver;
+	-fx-faint-focus-color: transparent;
+}
+
+.date-picker .text-field
+{
+	-fx-border-radius: 3px 0 0 3px;
+}
+
+.combo-box
+{
+	-fx-pref-height: 27px;
+}
+
+.text-field
+{
+	-fx-background-color: white;
+	-fx-border-color: silver;
+	-fx-border-radius: 3px;
+}
+
+.button
+{
+	-fx-pref-width: 63px;
+	-fx-focus-color: silver;
+	-fx-faint-focus-color: transparent;
+}
+
+.context-menu
+{
+	visibility: hidden;
+}

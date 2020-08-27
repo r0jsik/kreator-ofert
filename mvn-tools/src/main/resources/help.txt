@@ -1,0 +1,8 @@
+Example commands:
+
+mvn hhw:createPriceList "-Ddatabase=path/to/database/file.db" -Dpassword=password "-Dname=price-list-name" "-Dfrom=path/to/data/file.csv"
+mvn hhw:updatePriceList "-Ddatabase=path/to/database/file.db" -Dpassword=password "-Dname=price-list-name" "-Dfrom=path/to/data/file.csv"
+mvn hhw:renamePriceList "-Ddatabase=path/to/database/file.db" -Dpassword=password "-Dname=price-list-name" "-DdesiredName=newPriceListName"
+mvn hhw:removePriceList "-Ddatabase=path/to/database/file.db" -Dpassword=password "-Dname=price-list-name"
+mvn hhw:encryptClients "-Ddatabase=path/to/database/file.db" -Dpassword=password
+mvn hhw:clearClients   "-Ddatabase=path/to/database/file.db"

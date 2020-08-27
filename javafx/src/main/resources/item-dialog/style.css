@@ -1,0 +1,45 @@
+.v-box
+{
+	-fx-spacing: 20px;
+}
+
+.grid-pane
+{
+	-fx-vgap: 10px;
+	-fx-hgap: 20px;
+}
+
+.text-area, .text-field
+{
+	-fx-background-color: white;
+	-fx-border-radius: 3px;
+	-fx-border-color: silver;
+}
+
+.text-area
+{
+	-fx-pref-width: 267px;
+	-fx-pref-height: 100px;
+	-fx-wrap-text: true;
+}
+
+.text-area .content
+{
+	-fx-background-color: transparent, white, transparent, white;
+}
+
+.text-field, .combo-box
+{
+	-fx-pref-width: 150px;
+}
+
+.combo-box
+{
+	-fx-focus-color: silver;
+	-fx-faint-focus-color: transparent;
+}
+
+.context-menu
+{
+	visibility: hidden;
+}

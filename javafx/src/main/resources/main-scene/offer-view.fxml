@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.Label ?>
+<?import javafx.scene.control.TableColumn ?>
+
+<?import mr.record.TableRecordsView ?>
+
+<TableRecordsView xmlns="http://javafx.com/javafx">
+	<placeholder>
+		<Label text="Brak elementów oferty" />
+	</placeholder>
+	
+	<columns>
+		<TableColumn prefWidth="448" text="Nazwa artykułu i opis" />
+		<TableColumn resizable="false" prefWidth="100" text="Nr katalogowy" />
+		<TableColumn resizable="false" prefWidth="75" text="Cena jedn." />
+		<TableColumn resizable="false" prefWidth="50" text="Ilość" />
+		<TableColumn resizable="false" prefWidth="100" text="Wartość netto" />
+		<TableColumn prefWidth="205" text="Uwagi" />
+	</columns>
+</TableRecordsView>

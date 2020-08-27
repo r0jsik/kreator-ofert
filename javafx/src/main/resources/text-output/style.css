@@ -1,0 +1,23 @@
+.root
+{
+	-fx-padding: 10px;
+}
+
+.text-area
+{
+	-fx-background-color: white;
+	-fx-border-radius: 3px;
+	-fx-border-color: silver;
+	-fx-pref-width: 880px;
+	-fx-pref-height: 210px;
+}
+
+.text-area .content
+{
+	-fx-background-color: transparent, white, transparent, white;
+}
+
+.context-menu
+{
+	visibility: hidden;
+}

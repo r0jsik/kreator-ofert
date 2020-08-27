@@ -1,0 +1,52 @@
+.root
+{
+	-fx-padding: 10px;
+}
+
+.v-box
+{
+	-fx-spacing: 10px;
+}
+
+.h-box
+{
+	-fx-spacing: 10px;
+}
+
+#articleIdentifierField
+{
+	-fx-pref-width: 100px;
+}
+
+#descriptionField
+{
+	-fx-pref-width: 520px;
+}
+
+#priceListChooser
+{
+	-fx-pref-width: 140px;
+}
+
+.text-field
+{
+	-fx-background-color: white;
+	-fx-border-radius: 3;
+	-fx-border-color: silver;
+}
+
+.combo-box, .table-view
+{
+	-fx-focus-color: silver;
+	-fx-faint-focus-color: transparent;
+}
+
+.combo-box
+{
+	-fx-pref-height: 27px;
+}
+
+.context-menu
+{
+	visibility: hidden;
+}

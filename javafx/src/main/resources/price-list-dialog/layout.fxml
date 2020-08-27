@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.ComboBox ?>
+<?import javafx.scene.control.TextField ?>
+<?import javafx.scene.layout.HBox ?>
+<?import javafx.scene.layout.VBox ?>
+
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@style.css" styleClass="v-box">
+	<HBox styleClass="h-box">
+		<TextField fx:id="articleIdentifierField" promptText="Nr artykułu" />
+		<TextField fx:id="descriptionField" promptText="Nazwa artykułu zawiera..." />
+		<ComboBox fx:id="priceListChooser" />
+	</HBox>
+</VBox>

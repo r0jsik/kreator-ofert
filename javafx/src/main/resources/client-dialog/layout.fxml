@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.Label ?>
+<?import javafx.scene.control.TextField ?>
+<?import javafx.scene.layout.GridPane ?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" stylesheets="@style.css" styleClass="grid-pane">
+	<Label text="Imię i nazwisko" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+	<TextField fx:id="receiverField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+	
+	<Label text="Nazwa firmy" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+	<TextField fx:id="firmNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+	
+	<Label text="Numer VIP" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+	<TextField fx:id="vipField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+	
+	<Label text="Adres" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+	<TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+	
+	<Label text="Telefon" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+	<TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+	
+	<Label text="FAX" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+	<TextField fx:id="faxField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+	
+	<Label text="E-mail" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+	<TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+</GridPane>

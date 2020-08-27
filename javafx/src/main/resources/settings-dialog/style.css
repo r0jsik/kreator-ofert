@@ -1,0 +1,27 @@
+.v-box
+{
+	-fx-spacing: 20px;
+}
+
+.grid-pane
+{
+	-fx-vgap: 5px;
+	-fx-hgap: 20px;
+}
+
+.heading
+{
+	-fx-font-weight: bold;
+}
+
+.text-field
+{
+	-fx-background-color: white;
+	-fx-border-color: silver;
+	-fx-border-radius: 3px;
+}
+
+.context-menu
+{
+	visibility: hidden;
+}

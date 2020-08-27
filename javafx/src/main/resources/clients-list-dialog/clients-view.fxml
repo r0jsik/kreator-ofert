@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.TableColumn ?>
+<?import javafx.scene.control.Label ?>
+
+<?import mr.record.TableRecordsView ?>
+
+<TableRecordsView xmlns:fx="http://javafx.com/fxml/1">
+	<columns>
+		<TableColumn text="Imię i nazwisko" />
+		<TableColumn text="Nazwa firmy" />
+	</columns>
+	
+	<placeholder>
+		<Label text="Brak klientów" />
+	</placeholder>
+	
+	<columnResizePolicy>
+		<TableRecordsView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+	</columnResizePolicy>
+</TableRecordsView>

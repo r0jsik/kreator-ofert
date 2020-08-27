@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+	<util:list id="priceLists" value-type="mr.price.list.PriceList">
+		<bean class="mr.price.list.MixedPriceList">
+			<constructor-arg value="Cennik_A" />
+			<constructor-arg value="4" />
+		</bean>
+		
+		<bean class="mr.price.list.MixedPriceList">
+			<constructor-arg value="Cennik_B" />
+			<constructor-arg value="2" />
+		</bean>
+		
+		<bean class="mr.price.list.SimplePriceList">
+			<constructor-arg value="Cennik_C" />
+		</bean>
+		
+		<bean class="mr.price.list.DiscountablePriceList">
+			<constructor-arg value="Cennik_D" />
+			<constructor-arg value="0" />
+		</bean>
+		
+		<bean class="mr.price.list.SimplePriceList">
+			<constructor-arg value="Cennik_E" />
+		</bean>
+	</util:list>
+</beans>

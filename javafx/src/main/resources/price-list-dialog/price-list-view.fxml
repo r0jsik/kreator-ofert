@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.TableColumn ?>
+<?import javafx.scene.control.Label ?>
+
+<?import mr.record.TableRecordsView ?>
+
+<TableRecordsView>
+	<placeholder>
+		<Label text="Brak danych do wyświetlenia" />
+	</placeholder>
+	
+	<columns>
+		<TableColumn prefWidth="100" resizable="false" text="Nr artykułu" />
+		<TableColumn minWidth="665" text="Opis" />
+	</columns>
+</TableRecordsView>

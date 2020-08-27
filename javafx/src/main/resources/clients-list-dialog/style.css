@@ -1,0 +1,42 @@
+.root
+{
+	-fx-padding: 10px;
+}
+
+.v-box
+{
+	-fx-spacing: 10px;
+}
+
+.h-box
+{
+	-fx-spacing: 5px;
+}
+
+.text-field
+{
+	-fx-background-color: white;
+	-fx-border-color: silver;
+	-fx-border-radius: 3px;
+}
+
+.button, .table-view
+{
+	-fx-focus-color: silver;
+	-fx-faint-focus-color: transparent;
+}
+
+.button
+{
+	-fx-pref-width: 63px;
+}
+
+.separator
+{
+	-fx-orientation: vertical;
+}
+
+.context-menu
+{
+	visibility: hidden;
+}
