@@ -51,6 +51,12 @@ public class Ini4jPreferences implements Preferences
 	}
 	
 	@Override
+	public double getDouble(String section, String key)
+	{
+		return ini.get(section, key, Double.class);
+	}
+	
+	@Override
 	public void setList(String section, String key, String[] list)
 	{
 		set(section, key, String.join(listSplitDelimiter, list));

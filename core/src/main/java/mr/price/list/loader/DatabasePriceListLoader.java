@@ -11,15 +11,18 @@ import mr.database.table.Table;
 import mr.price.Price;
 import mr.price.list.PriceList;
 import mr.price.list.PriceListRecord;
+import mr.settings.preferences.Preferences;
 
 
 public class DatabasePriceListLoader implements PriceListLoader
 {
 	private final Database database;
+	private final Preferences preferences;
 	
-	public DatabasePriceListLoader(Database database)
+	public DatabasePriceListLoader(Database database, Preferences preferences)
 	{
 		this.database = database;
+		this.preferences = preferences;
 	}
 	
 	@Override
@@ -67,8 +70,20 @@ public class DatabasePriceListLoader implements PriceListLoader
 	{
 		double[] values = convertToDoubles(entry);
 		
+		convertCurrency(values);
+		
 		Price price = priceList.createPrice(columnNames, values);
 		priceConsumer.accept(price);
+	}
+	
+	private void convertCurrency(double[] values)
+	{
+		double exchangeRate = preferences.getDouble("price-list", "exchange-rate");
+		
+		for (int i = 0; i < values.length; i++)
+		{
+			values[i] = values[i] * exchangeRate;
+		}
 	}
 	
 	private double[] convertToDoubles(String[] fields)

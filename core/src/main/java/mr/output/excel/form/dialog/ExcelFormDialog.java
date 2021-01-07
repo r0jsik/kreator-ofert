@@ -26,7 +26,7 @@ public class ExcelFormDialog
 		this.clientsService = clientsService;
 	}
 	
-	public void show(ExcelFormConsumer excelFormConsumer)
+	public void show(ExcelFormConsumer callback)
 	{
 		MementoCaretaker mementoCaretaker = new SingleMementoCaretaker<>(controller);
 		mementoCaretaker.save();
@@ -35,7 +35,7 @@ public class ExcelFormDialog
 		
 		confirmation.setOnConfirmed(() -> {
 			controller.withReportData((reportType, documentName) -> {
-				excelFormConsumer.accept(controller, reportType, documentName);
+				callback.accept(controller, reportType, documentName);
 			});
 		});
 		

@@ -21,10 +21,10 @@ public class DialogFileExporter implements FileExporter
 	}
 	
 	@Override
-	public void export(Exportable exportable, File directory, String fileName, Consumer<File> fileConsumer)
+	public void export(Exportable exportable, File directory, String fileName, Consumer<File> callback)
 	{
 		fileDialog.chooseToSave(directory, fileName, extensions, file -> {
-			export(exportable, file, fileConsumer);
+			export(exportable, file, callback);
 		});
 	}
 	

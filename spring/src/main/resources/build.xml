@@ -159,6 +159,7 @@
 		<constructor-arg>
 			<bean class="mr.price.list.loader.DatabasePriceListLoader">
 				<constructor-arg ref="priceListsDatabase" />
+				<constructor-arg ref="mainPreferences" />
 			</bean>
 		</constructor-arg>
 		

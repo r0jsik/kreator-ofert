@@ -8,6 +8,7 @@ import mr.item.Item;
 import mr.output.Output;
 import mr.output.excel.document.Document;
 import mr.output.excel.document.DocumentGenerator;
+import mr.output.excel.document.DocumentName;
 import mr.output.excel.form.dialog.ExcelFormDialog;
 import mr.output.excel.report.ReportContentProvider;
 import mr.output.excel.report.ReportType;
@@ -34,11 +35,11 @@ public class ExcelOutput implements Output
 	public void show(List<Item> items)
 	{
 		excelFormDialog.show((contentProvider, reportType, documentName) -> {
-			export(contentProvider, reportType, documentName.toString(), items);
+			export(contentProvider, reportType, documentName, items);
 		});
 	}
 	
-	private void export(ReportContentProvider contentProvider, ReportType reportType, String documentName, List<Item> items)
+	private void export(ReportContentProvider contentProvider, ReportType reportType, DocumentName documentName, List<Item> items)
 	{
 		Agent tradesman = loadAgent("tradesman");
 		Agent assistant = loadAgent("assistant");
@@ -57,23 +58,15 @@ public class ExcelOutput implements Output
 		);
 	}
 	
-	private void export(Document document, ReportType reportType, String documentName)
+	private void export(Document document, ReportType reportType, DocumentName documentName)
 	{
 		String reportTypeName = reportType.getName();
 		String pathToExportDirectory = preferences.getString("export", reportTypeName);
 		File exportDirectory = new File(pathToExportDirectory);
 		
-		fileExporter.export(document, exportDirectory, documentName, file -> {
-			updateExportDirectory(file.getParent(), pathToExportDirectory, reportTypeName);
-		});
-	}
-	
-	private void updateExportDirectory(String currentPath, String previousPath, String reportTypeName)
-	{
-		if ( !previousPath.equals(currentPath))
-		{
-			preferences.set("export", reportTypeName, currentPath);
+		fileExporter.export(document, exportDirectory, documentName.toString(), file -> {
+			preferences.set("export", reportTypeName, file.getParent());
 			preferences.save();
-		}
+		});
 	}
 }

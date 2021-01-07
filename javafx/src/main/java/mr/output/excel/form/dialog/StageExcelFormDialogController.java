@@ -235,12 +235,12 @@ public class StageExcelFormDialogController extends StageClientFormController im
 	}
 	
 	@Override
-	public void withReportData(BiConsumer<ReportType, DocumentName> reportDataConsumer)
+	public void withReportData(BiConsumer<ReportType, DocumentName> consumer)
 	{
 		ReportType reportType = getReportType();
 		DocumentName documentName = getDocumentName();
 		
-		reportDataConsumer.accept(reportType, documentName);
+		consumer.accept(reportType, documentName);
 	}
 	
 	private ReportType getReportType()
